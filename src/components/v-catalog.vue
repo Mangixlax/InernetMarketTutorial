@@ -24,12 +24,7 @@
     data() {
       return {
         products: [
-<<<<<<< HEAD
           {
-            id: 1,
-=======
-          { 
->>>>>>> c5edd9d44d45b3636edf2e132850bc6f5afa6ceb
             image: "1.jpg",
             name: "T-shirt 1",
             price: 2100.234234234,
@@ -86,19 +81,9 @@
       }
     },
     computed: {},
-<<<<<<< HEAD
-    watch: {
-      products: {
-        deep: true,
-          handler(Products) {
-            console.table(Products)
-
-          }
-=======
     methods: {
       showChildArticleConsole(data){
         console.log(data)
->>>>>>> c5edd9d44d45b3636edf2e132850bc6f5afa6ceb
       }
     }
   }
