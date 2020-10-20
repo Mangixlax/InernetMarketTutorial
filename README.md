@@ -22,3 +22,12 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+-----------------------------------------------
+
+git config --global user.name "Aslan Dzhangetov"
+
+git config --global user.email ""
+
+mkdir - create directory
+
