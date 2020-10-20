@@ -1,9 +1,9 @@
 <template>
   <div class="v-catalog-item">
-    <img src="" alt="product">
-    <p>Item 1</p>
-    <p>Price:100</p>
-    <button>Add to cart</button>
+    <img :src="`../assets/images/${id}.jpg`" alt="product">
+    <p id class="v-catalog-item__name">{{product_data.name}}</p>
+    <p class="v-catalog-item__price">{{product_data.price}}</p>
+    <button >Add to cart</button>
   </div>
 </template>
 
