@@ -6,6 +6,7 @@
         v-for="product in products"
         :key="product.article"
         :product_data="product"
+        @sendArticle="showChildArticleConsole"
       />     
     </div>
   </div>
@@ -23,7 +24,7 @@
     data() {
       return {
         products: [
-          {
+          { 
             image: "1.jpg",
             name: "T-shirt 1",
             price: 2100.234234234,
@@ -75,6 +76,11 @@
       }
     },
     computed: {},
+    methods: {
+      showChildArticleConsole(data){
+        console.log(data)
+      }
+    }
   }
 </script>
 
