@@ -3,8 +3,13 @@
     <h1>Catalog</h1>
     <div class="v-catalog__list">
       <v-catalog-item
+<<<<<<< HEAD
         v-for="product in products"
         :key="product.id"
+=======
+        v-for="product in this.$store.state.products"
+        :key="product.article"
+>>>>>>> 74d75b949e85202213369ff835b118fb8483e25b
         :product_data="product"
         @sendArticle="showChildArticleConsole"
       />     
@@ -14,6 +19,7 @@
 
 <script>
   import vCatalogItem from './v-catalog-item.vue'
+  import {mapActions} from 'vuex'
 
   export default {
     name: 'v-catalog',
@@ -23,6 +29,7 @@
     props: {},
     data() {
       return {
+<<<<<<< HEAD
         products: [
           {
             image: "1.jpg",
@@ -78,13 +85,22 @@
             category: "Женские"
           }
         ]
+=======
+        
+>>>>>>> 74d75b949e85202213369ff835b118fb8483e25b
       }
     },
     computed: {},
     methods: {
+      ...mapActions ([
+        'GET_PRODUCTS_FROM_API'
+      ]),
       showChildArticleConsole(data){
         console.log(data)
       }
+    },
+    mounted(){
+      this.GET_PRODUCTS_FROM_API()
     }
   }
 </script>
