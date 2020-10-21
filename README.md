@@ -1,3 +1,11 @@
+1. git clone "url"
+2. npm install -g json-server (inf not instaled)
+3. npm i
+4. json-server --watch db.json
+5. npm run srve
+
+
+
 # np
 
 ## Project setup
@@ -22,3 +30,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
