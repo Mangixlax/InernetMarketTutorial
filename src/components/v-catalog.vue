@@ -6,7 +6,7 @@
         v-for="product in this.$store.state.products"
         :key="product.article"
         :product_data="product"
-        @sendArticle="showChildArticleConsole"
+        @add-to-cart="addToCart"
       />     
     </div>
   </div>
@@ -30,14 +30,15 @@
     computed: {},
     methods: {
       ...mapActions ([
-        'GET_PRODUCTS_FROM_API'
+        'fetchProductsFromApi',
+        'addProductToCart'
       ]),
-      showChildArticleConsole(data){
-        console.log(data)
+      addToCart(data){
+        this.addProductToCart(data)
       }
     },
     mounted(){
-      this.GET_PRODUCTS_FROM_API()
+      this.fetchProductsFromApi()
     }
   }
 </script>
