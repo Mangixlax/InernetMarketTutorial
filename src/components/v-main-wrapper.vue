@@ -1,14 +1,15 @@
 <template>
   <div class="v-main-wrapper">
-    <p>adasd</p>
     <v-catalog/>
-    <v-cart/>
+    <v-cart v-if="CART.length"/>
   </div>
 </template>
 
 <script>
   import vCatalog from './v-catalog.vue'
   import vCart from './v-cart'
+  import {mapGetters} from 'vuex'
+  
   export default {
     name: 'v-main-wrapper',
     components: {
@@ -21,7 +22,11 @@
 
       }
     },
-    computed: {},
+    computed: {
+      ... mapGetters([
+        'CART'
+      ]),
+    },
     methods: {},
     watch: {},
       

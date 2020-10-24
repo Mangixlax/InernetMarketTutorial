@@ -5,15 +5,20 @@ import axios from 'axios'
 
 export const store = createStore ({
 	state: {
-		products: []
+		products: [],
+		cart: []
 	},
 	mutations: {
 		SET_PRODUCTS_TO_STATE: (state, products) => {
 			state.products = products;
+		},
+		SET_PRODUCT_TO_CART: (state, product) => {
+			state.cart.push(product)
+			console.log(state.cart)
 		}
 	},
 	actions: {
-		GET_PRODUCTS_FROM_API({commit}) {
+		fetchProductsFromApi({commit}) {
 			return axios ('http://localhost:3000/products', {
 				method: "GET"
 			})
@@ -25,11 +30,18 @@ export const store = createStore ({
 					console.log(error)
 					return error;
 				})
+		},
+		addProductToCart({commit}, product) {
+			commit('SET_PRODUCT_TO_CART',product);
 		}
+	
 	},
 	getters: {
 		PRODUCTS(state){
 			return state.products;
+		},
+		CART(state){
+			return state.cart;
 		}
 	},
 
