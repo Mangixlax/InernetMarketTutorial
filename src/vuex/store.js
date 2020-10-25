@@ -14,7 +14,7 @@ export const store = createStore ({
 		},
 		SET_PRODUCT_TO_CART: (state, product) => {
 			state.cart.push(product)
-			console.log(state.cart)
+			console.table(state.cart)
 		}
 	},
 	actions: {
