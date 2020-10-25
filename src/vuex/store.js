@@ -13,8 +13,30 @@ export const store = createStore ({
 			state.products = products;
 		},
 		SET_PRODUCT_TO_CART: (state, product) => {
-			state.cart.push(product)
+						
+			if (state.cart.length) {
+				let isProductExist = false;
+				state.cart.map(function (item) {
+					if (item.article === product.article) {
+						isProductExist = true;						
+						item.quantity ++
+						
+					}
+				})
+				if (!isProductExist) {
+										
+					state.cart.push(product)
+				}
+			} else {
+				product.quantity = 1;
+				state.cart.push(product)
+			}
+			
+			
 			console.table(state.cart)
+		},
+		REMOVE_FROM_CART: (state, index) => {
+			state.cart.splice(index, 1)
 		}
 	},
 	actions: {
@@ -33,6 +55,9 @@ export const store = createStore ({
 		},
 		addProductToCart({commit}, product) {
 			commit('SET_PRODUCT_TO_CART',product);
+		},
+		deleteProductFromCart({commit}, index) {
+			commit('REMOVE_FROM_CART', index)
 		}
 	
 	},
