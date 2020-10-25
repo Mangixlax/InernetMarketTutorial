@@ -24,7 +24,7 @@ export const store = createStore ({
 					}
 				})
 				if (!isProductExist) {
-										
+					product.quantity = 1;					
 					state.cart.push(product)
 				}
 			} else {
