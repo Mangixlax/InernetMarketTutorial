@@ -5,11 +5,15 @@
     </router-link>
 		<h1>Cart</h1>
     <v-cart-item
-        v-for="(item, index) in cart_data"
+        v-for="(item, index) in getProductsFromCart"
         :key="item.article"
         :cart_item_data="item"
         @delete-from-cart="deleteFromCart(index)"
-    />  
+    />
+    <div class="v-cart__total">
+      <p> Total :</p>
+      <p>{{CartTotalCost}}</p>
+    </div>  
 	</div>
 </template>
 <script>
@@ -21,29 +25,52 @@
     components: {
       vCartItem
     },
-    props: {
-      cart_data: {
-        type: Array,
-        default: () => ([])
-      }
-    },
-    data(){
-      return {
+    computed: {
+      getProductsFromCart() {
+        return this.$store.state.cart
+      },
+      CartTotalCost() {
+        let result = [];
 
+        for (let item of this.$store.state.cart) {
+          result.push(item.price * item.quantity)
+        }
+
+        result = result.reduce(function (sum, el) {
+          return sum + el;
+        })
+
+        return result;
       }
     },
     methods: {
       ...mapActions([
         'deleteProductFromCart'
       ]),
+
       deleteFromCart(index) {
        this.deleteProductFromCart(index)
-
       }
     },
   }
 </script>
 
-<style>
+<style lang="scss">
+  .v-cart {
+    &__total {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding: $padding*3;
+      display: flex;
+      justify-content: center;
+      background: #b2b2b2;
+    }
+
+    .total__name {
+      margin-right: $margin*2;
+    }
+  }
 
 </style>

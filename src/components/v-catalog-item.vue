@@ -18,11 +18,6 @@
         }
       }
     },
-    data(){
-      return {
-
-      }
-    },
     methods: {
       addToCart () {
         this.$emit('add-to-cart', this.product_data)
