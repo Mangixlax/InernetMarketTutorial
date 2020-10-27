@@ -5,7 +5,7 @@
     </router-link>
 		<h1>Cart</h1>
     <v-cart-item
-        v-for="(item, index) in cart_data"
+        v-for="(item, index) in getProductsFromCart"
         :key="item.article"
         :cart_item_data="item"
         @delete-from-cart="deleteFromCart(index)"
@@ -21,24 +21,18 @@
     components: {
       vCartItem
     },
-    props: {
-      cart_data: {
-        type: Array,
-        default: () => ([])
-      }
-    },
-    data(){
-      return {
-
+    computed: {
+      getProductsFromCart() {
+        return this.$store.state.cart
       }
     },
     methods: {
       ...mapActions([
         'deleteProductFromCart'
       ]),
+
       deleteFromCart(index) {
        this.deleteProductFromCart(index)
-
       }
     },
   }

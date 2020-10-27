@@ -1,8 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
-
-
 export const store = createStore ({
 	state: {
 		products: [],
@@ -31,8 +29,7 @@ export const store = createStore ({
 				product.quantity = 1;
 				state.cart.push(product)
 			}
-			
-			
+						
 			console.table(state.cart)
 		},
 		REMOVE_FROM_CART: (state, index) => {
@@ -58,8 +55,7 @@ export const store = createStore ({
 		},
 		deleteProductFromCart({commit}, index) {
 			commit('REMOVE_FROM_CART', index)
-		}
-	
+		}	
 	},
 	getters: {
 		PRODUCTS(state){

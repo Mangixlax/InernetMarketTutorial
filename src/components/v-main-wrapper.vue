@@ -4,7 +4,6 @@
     <router-view></router-view>
     <!-- </keep-alive> -->
 
-
     <!-- <v-catalog/>
     <v-cart
       v-if="CART.length"
@@ -25,22 +24,12 @@
     //   vCart
     // },
     // props: {},
-    data(){
-      return{
-
-      }
-    },
     computed: {
       ... mapGetters([
         'CART'
       ]),
-    },
-    methods: {},
-    watch: {},
-      
-
-
-    }
+    },    
+  }
 </script>
 
 <style lang="scss">
