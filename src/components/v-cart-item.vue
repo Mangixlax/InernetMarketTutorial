@@ -9,8 +9,9 @@
         </div>
       
         <div class="v-cart-item__quantity">
-          <p>Qty</p>
-          {{cart_item_data.quantity}}
+          <button @click="decrement" class="btn">-</button>  
+          <p>Qty : {{cart_item_data.quantity}}</p>
+          <button @click="increment" class="btn">+</button> 
         </div>
         <button @click="deleteFromCart">Delete</button>
 	</div>
@@ -28,7 +29,15 @@
     methods: {
       deleteFromCart() {
         this.$emit('delete-from-cart')
-      },  
+      },
+    
+      decrement(){
+        this.$emit('decrement')
+      },
+      increment(){
+        this.$emit('increment')
+      },
+        
     },
   }
 </script>
@@ -43,6 +52,10 @@
         box-shadow: 0 0 8px 0 #e0e0e0;
         &__image {
             max-width: 50px;
+        }
+        &__quantity {
+          display: flex;
+          align-items: center;
         }
     }
 </style>

@@ -1,1 +1,6 @@
 @import 'variables.scss';
+
+.btn {
+    padding: $padding;
+    margin: $margin*3;   
+}
