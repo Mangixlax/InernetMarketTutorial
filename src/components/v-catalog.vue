@@ -26,12 +26,6 @@
     components: {
       vCatalogItem,
     },
-    props: {},
-    data() {
-      return {
-        
-      }
-    },
     computed: {
       ...mapGetters([
         'CART'

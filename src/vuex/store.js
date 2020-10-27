@@ -7,7 +7,7 @@ export const store = createStore ({
 		cart: []
 	},
 	mutations: {
-		SET_PRODUCTS_TO_STATE: (state, products) => {
+		SET_PRODUCTS_TO_STATE: (state, products) => {			
 			state.products = products;
 		},
 		SET_PRODUCT_TO_CART: (state, product) => {
