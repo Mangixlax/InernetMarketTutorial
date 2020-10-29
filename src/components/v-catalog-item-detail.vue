@@ -1,14 +1,12 @@
 <template>
-  Heloo
   <router-link :to="{name: 'catalog'}">
       <div class="v-catalog__link_to_cart">Back to catalog</div>
   </router-link>
-  <div class="v-catalog-item"> 
-    {{article}}   
-    <!-- <img class="v-catalog-item__image" :src="require('../assets/images/' + product_data.image)" alt="product">
-    <p class="v-catalog-item__name">{{product_data.name}}</p>
-    <p class="v-catalog-item__price">{{Math.floor(product_data.price)}}</p>
-    <button @click="addToCart">Add to cart</button>   -->
+  <div class="v-catalog-item">  
+    <img class="v-catalog-item__image" :src="require('../assets/images/' + product.image)" alt="product">
+    <p class="v-catalog-item__name">{{product.name}}</p>
+    <p class="v-catalog-item__price">{{Math.floor(product.price)}}</p>
+    <button @click="addToCart">Add to cart</button>  
   </div>
 </template>
 
@@ -16,16 +14,25 @@
   export default {
     name: 'v-catalog-item-detail',
     data() {
-      return {
-
+      return {       
+        product: {}  
       }
     },
     props: {
        article: String,
     },
-
-  }
-  
+    created() {
+    this.fetchProduct();
+    },
+    watch: {
+      $route: "fetchProduct"
+    },
+    methods: {
+      fetchProduct() {
+        this.product = this.$store.state.products.find((product) => product.article === this.$route.params.article)
+      }
+    }
+  } 
 </script>
 
 <style lang="scss">

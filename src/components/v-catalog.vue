@@ -4,8 +4,8 @@
       <div class="v-catalog__link_to_cart">Cart: {{CART.length}}</div>
     </router-link>
     <h1>Catalog</h1>
-    <div class="v-catalog__list">
-      <v-catalog-item
+    <div class="v-catalog__list" v-if="this.$store.state.products.length">
+      <v-catalog-item       
         v-for="product in this.$store.state.products"
         :key="product.article"
         :product_data="product"
@@ -40,7 +40,7 @@
         this.addProductToCart(data)
       }
     },
-    mounted(){
+    created(){
       this.fetchProductsFromApi()
     }
   }
