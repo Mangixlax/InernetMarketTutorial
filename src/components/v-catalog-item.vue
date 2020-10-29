@@ -1,6 +1,8 @@
 <template>
   <div class="v-catalog-item">
-    <img class="v-catalog-item__image" :src="require('../assets/images/' + product_data.image)" alt="product">
+    <router-link :to="{name: 'catalogItemDetail', params: {article: product_data.article}}">
+      <img class="v-catalog-item__image" :src="require('../assets/images/' + product_data.image)" alt="product">
+    </router-link>
     <p class="v-catalog-item__name">{{product_data.name}}</p>
     <p class="v-catalog-item__price">{{Math.floor(product_data.price)}}</p>
     <button @click="addToCart">Add to cart</button>

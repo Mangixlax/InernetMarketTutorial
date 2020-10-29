@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import vCatalog from '../components/v-catalog.vue'
 import vCart from '../components/v-cart'
+import vCatalogItemDetail from '../components/v-catalog-item-detail.vue'
 
 const routes =  [
 	{
@@ -12,6 +13,12 @@ const routes =  [
 		path: '/cart',
 		name: 'cart',
 		component: vCart,
+		props: true
+	},
+	{
+		path: '/catalog/:article',
+		name: 'catalogItemDetail',
+		component: vCatalogItemDetail,
 		props: true
 	}		
 ];
