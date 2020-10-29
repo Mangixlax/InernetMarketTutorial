@@ -4,7 +4,7 @@
 
         <div>
             <p>{{cart_item_data.name}}</p>
-            <p>{{cart_item_data.price}}</p>
+            <p>{{Math.floor(cart_item_data.price)}}</p>
             <p>{{cart_item_data.article}}</p>
         </div>
       

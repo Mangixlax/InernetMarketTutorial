@@ -4,6 +4,7 @@
       <div class="v-catalog__link_to_cart">Back to catalog</div>
     </router-link>
 		<h1>Cart</h1>
+    <p v-if="!this.$store.state.cart.length">There are no products in cart ...</p>
     <v-cart-item
         v-for="(item, index) in getProductsFromCart"
         :key="item.article"
@@ -32,7 +33,7 @@
         return this.$store.state.cart
       },
       CartTotalCost() {  
-        return this.$store.state.cart.reduce((res, item) => res + item.price * item.quantity, 0)    
+        return Math.floor(this.$store.state.cart.reduce((res, item) => res + item.price * item.quantity, 0))    
         // let result = [];
 
         // for (let item of this.$store.state.cart) {
